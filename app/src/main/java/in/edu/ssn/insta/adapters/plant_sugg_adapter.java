@@ -10,9 +10,12 @@ import android.widget.TextView;
 
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+import in.edu.ssn.insta.Activities.SharedPref;
 import in.edu.ssn.insta.R;
 import in.edu.ssn.insta.classes.plant_sugg_details;
 
@@ -33,10 +36,9 @@ public class plant_sugg_adapter extends ArrayAdapter<plant_sugg_details> {
         if (convertView == null)
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.plant_suggestion, parent, false);
 
-        ImageView Img1 = convertView.findViewById(R.id.plant_sug_img);
+        CircleImageView Img1 = convertView.findViewById(R.id.plant_sug_img);
         TextView tex1 = convertView.findViewById(R.id.plant_sugg_text);
-
-        Img1.setBackgroundResource(object.getImage());
+        Picasso.get().load(object.getImage()).into(Img1);
         tex1.setText(object.getName());
 
         return convertView;

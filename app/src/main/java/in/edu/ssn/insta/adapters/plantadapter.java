@@ -16,6 +16,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -46,8 +47,8 @@ public class plantadapter extends ArrayAdapter<plant_details> {
         TextView text2 = convertView.findViewById(R.id.text_plant_2);
 
 
-        Img1.setBackgroundResource(object.getPic1());
-        Img2.setBackgroundResource(object.getPic2());
+        Picasso.get().load(object.getPic1()).into(Img1);
+        Picasso.get().load(object.getPic2()).into(Img2);
 
         text1.setText(object.getProduct_name1());
         text2.setText(object.getProduct_name2());

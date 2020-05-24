@@ -5,23 +5,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import in.edu.ssn.insta.R;
 
 public class login_options extends AppCompatActivity {
 
-    ImageView farming;
-    ImageView gardeneing;
+    LinearLayout farming,gardeneing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_options);
-        farming = (ImageView)findViewById(R.id.farmining_button);
-        gardeneing=(ImageView)findViewById(R.id.gardening_btn);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+
+        farming = findViewById(R.id.farmining_button);
+        gardeneing= findViewById(R.id.gardening_btn);
 
 
         final String[] year_list = {"Before pumping, properly agitate the manure in your storage tank to make sure you get it as uniform as possible"};

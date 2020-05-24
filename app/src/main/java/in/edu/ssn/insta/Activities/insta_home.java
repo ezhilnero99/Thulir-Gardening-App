@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,6 +39,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import in.edu.ssn.insta.R;
 import in.edu.ssn.insta.classes.post_details;
 
@@ -65,6 +68,12 @@ public class insta_home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
 
         posts = (RecyclerView) findViewById(R.id.post_listv);
         upload = (ImageView) findViewById(R.id.upload);
@@ -113,7 +122,7 @@ public class insta_home extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull final FeedViewHolder holder, int i, @NonNull final post_details post_det) {
                 holder.tv_name.setText(post_det.getUsername());
                 holder.tv_name_below.setText(post_det.getUsername());
-                holder.tv_desc.setText(post_det.getUsername());
+                holder.tv_desc.setText(post_det.getDesc());
                 Picasso.get().load(post_det.getUser_img()).into(holder.user_img);
                 Picasso.get().load(post_det.getPost_img()).into(holder.post_img);
 
@@ -195,7 +204,8 @@ public class insta_home extends AppCompatActivity {
     public class FeedViewHolder extends RecyclerView.ViewHolder {
         public TextView tv_name, tv_desc,tv_name_below,comment_view;
         public View view;
-        public ImageView user_img,post_img,like,comment_sub;
+        public ImageView post_img,like,comment_sub;
+        CircleImageView user_img;
 
         public FeedViewHolder(View itemView) {
             super(itemView);

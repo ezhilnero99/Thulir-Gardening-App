@@ -10,8 +10,11 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ListView;
@@ -41,6 +44,10 @@ public class map extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map2);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
 
         map = (WebView) findViewById(R.id.map_webview);
         plant_sugg_lv = (ListView) findViewById(R.id.plant_suggestion_lv);
@@ -80,12 +87,12 @@ public class map extends AppCompatActivity {
             month = formatter.format(date);
             if (loc.equals("North")) {
                 switch (month) {
-                    case "01":break;
-                    case "02":break;
-                    case "03":break;
-                    case "04":break;
-                    case "05":break;
-                    case "06":break;
+                    case "01":
+                    case "02":
+                    case "03":
+                    case "04":
+                    case "05":
+                    case "06":
                     case "07":
                         Log.i(TAG, "onCreate: "+month);
                         arr_list.add(new plant_sugg_details("guards" ,R.drawable.guard));
@@ -126,16 +133,20 @@ public class map extends AppCompatActivity {
                 }
             } else if (loc.equals("South")) {
                 switch (month) {
-                    case "01":break;
-                    case "02":break;
-                    case "03":break;
-                    case "04":break;
-                    case "05":break;
-                    case "06":break;
+                    case "01":
+                    case "02":
+                    case "03":
+                    case "04":
+                    case "05":
+                    case "06":
                     case "07":
                         Log.i(TAG, "onCreate: "+month);
                         arr_list.add(new plant_sugg_details("guards" ,R.drawable.guard));
                         arr_list.add(new plant_sugg_details("solanaeceae" ,R.drawable.solanaeae));
+                        arr_list.add(new plant_sugg_details("carrot" ,R.drawable.carrot));
+                        arr_list.add(new plant_sugg_details("cauliflower" ,R.drawable.cauliflower));
+                        arr_list.add(new plant_sugg_details("radish" ,R.drawable.radish));
+                        arr_list.add(new plant_sugg_details("tomato" ,R.drawable.tomato));
                         break;
 
                     case "08":

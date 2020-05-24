@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_grey"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".Activities.map">
 
 
     <WebView
+        android:layout_marginTop="25dp"
         android:padding="20dp"
         android:id="@+id/map_webview"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="400dp"
         />
     <TextView
         android:layout_marginLeft="45dp"

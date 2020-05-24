@@ -4,101 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rectangle_back"
+    android:background="@mipmap/cat"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".Activities.language">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/leaves"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="100dp"/>
+
     <TextView
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="Choose A Language"
-        android:textAlignment="gravity"
-        android:textStyle="bold"
-
-        android:textColor="@color/white"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/rectangle_blue"
         android:gravity="center_vertical|center_horizontal"
-        />
+        android:text="Choose A Language"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
     <LinearLayout
 
-        android:background="@drawable/rectangle"
+        android:id="@+id/english_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_marginBottom="20dp"
-
+        android:background="@drawable/rectangle"
         android:orientation="vertical"
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/english_button"
             android:layout_width="100dp"
             android:layout_height="80dp"
-            android:text="A"
-            android:textSize="60dp"
-            android:textAlignment="gravity"
-            android:textStyle="bold"
-            android:textColor="@color/dark_blue"
             android:gravity="center_vertical|center_horizontal"
-             />
+            android:text="A"
+            android:textAlignment="gravity"
+            android:textColor="@color/dark_blue"
+            android:textSize="60dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/text_shop_1"
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="English"
             android:textAlignment="gravity"
-            android:textSize="16dp"
             android:textColor="@color/dark_grey"
+            android:textSize="16dp"
 
             />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:background="@drawable/rectangle"
+        android:id="@+id/tamil_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:background="@drawable/rectangle"
         android:orientation="vertical"
         android:padding="20dp"
+
         >
 
         <TextView
-            android:id="@+id/tamil_button"
             android:layout_width="100dp"
             android:layout_height="80dp"
-            android:text="த"
-            android:textSize="60dp"
-            android:textAlignment="gravity"
-            android:textStyle="bold"
-            android:textColor="@color/dark_blue"
             android:gravity="center_vertical|center_horizontal"
-            />
+            android:text="த"
+            android:textAlignment="gravity"
+            android:textColor="@color/dark_blue"
+            android:textSize="60dp"
+            android:textStyle="bold" />
 
         <TextView
-            android:layout_marginTop="20dp"
             android:id="@+id/text_shop_2"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:gravity="center_horizontal|center_vertical"
-            android:text="
-தமிழ்"
+            android:text="தமிழ்"
             android:textAlignment="gravity"
-            android:textSize="16dp"
             android:textColor="@color/dark_grey"
-            />
+            android:textSize="16dp" />
     </LinearLayout>
 
 </LinearLayout>

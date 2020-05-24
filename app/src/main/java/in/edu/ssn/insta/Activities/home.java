@@ -2,6 +2,7 @@ package in.edu.ssn.insta.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.os.Handler;
@@ -21,21 +22,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import in.edu.ssn.insta.R;
 
-public class home extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class home extends AppCompatActivity{
 
-    ImageView shop;
-    ImageView insta;
-    ImageView plants;
-    ImageView gps;
-    ImageView display;
+    RelativeLayout shop;
+    RelativeLayout insta;
+    RelativeLayout plants;
+    RelativeLayout gps;
     TextView events;
-    int flag=0;
+    ImageView detailsIV,logoutIV;
 
     Intent Insta_intent;
     Intent shop_intent;
@@ -43,57 +44,26 @@ public class home extends AppCompatActivity
     Intent plant_intent;
     Intent event_intent;
 
-    public void change_image(){
-        new Handler().postDelayed(new Runnable(){
-            @Override
-            public void run() {
-                if(flag==0){
-                    display.setBackgroundResource(R.mipmap.dis1);
-                    flag=2;
-                }
-                else if(flag==2){
-                    display.setBackgroundResource(R.mipmap.dis2);
-                    flag=3;
-                }
-                else if(flag==3){
-                    display.setBackgroundResource(R.mipmap.dis3);
-                    flag=4;
-                }
-                else if(flag==4){
-                    display.setBackgroundResource(R.mipmap.dis4);
-                    flag=0;
-                }
-            }
-        }, 500);
-
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
 
-        shop = (ImageView) findViewById(R.id.shop_home_btn);
-        insta = (ImageView) findViewById(R.id.insta_home_btn);
-        plants = (ImageView) findViewById(R.id.plantg_home_btn);
-        gps = (ImageView) findViewById(R.id.GPS_home_btn);
-        display=(ImageView)findViewById(R.id.display_img);
-        events = (TextView)findViewById(R.id.Event_img_btn) ;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+        shop = findViewById(R.id.shopRL);
+        insta = findViewById(R.id.arenaRL);
+        plants =  findViewById(R.id.howtoRL);
+        gps =  findViewById(R.id.suggentionRL);
+        detailsIV = findViewById(R.id.detailsIV);
+        logoutIV = findViewById(R.id.logoutIV);
 
         shop.setOnClickListener(shop_redirect);
         insta.setOnClickListener(insta_redirect);
         gps.setOnClickListener(gps_redirect);
         plants.setOnClickListener(plant_redirect);
-        events.setOnClickListener(event_redirect);
 
 
         gps_intent = new Intent(getApplicationContext(), map.class);
@@ -102,106 +72,65 @@ public class home extends AppCompatActivity
         plant_intent = new Intent(getApplicationContext(), Plants.class);
         event_intent = new Intent(getApplicationContext(), Events.class);
 
-        change_image();
+        detailsIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                AlertDialog.Builder builder1 = new AlertDialog.Builder(home.this);
+//            builder1.setTitle("DEVELOPERS");
+//            builder1.setMessage(R.string.Developers);
+//            builder1.setCancelable(true);
+//
+//            builder1.setPositiveButton(
+//                    "Ok",
+//                    new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            dialog.cancel();
+//                        }
+//                    });
+//
+//            AlertDialog alert11 = builder1.create();
+//            alert11.show();
+                startActivity(event_intent);
 
-    }
+            }
+        });
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            Intent startMain = new Intent(Intent.ACTION_MAIN);
-            startMain.addCategory(Intent.CATEGORY_HOME);
-            startMain.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-            startActivity(startMain);
-            finishAffinity();
-            finish();
+        logoutIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-            builder1.setTitle("DEVELOPERS");
-            builder1.setMessage(R.string.Developers);
-            builder1.setCancelable(true);
-
-            builder1.setPositiveButton(
-                    "Ok",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-
-            AlertDialog alert11 = builder1.create();
-            alert11.show();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_home) {
-            startActivity(gps_intent);
-            change_image();
-        } else if (id == R.id.nav_gallery) {
-            change_image();
-            startActivity(plant_intent);
-        } else if (id == R.id.nav_shop) {
-            startActivity(shop_intent);
-            change_image();
-        } else if (id == R.id.nav_insta) {
-            startActivity(Insta_intent);
-            change_image();
-        }
-        else if (id == R.id.nav_logout) {
             SharedPref.putString(getApplicationContext(), "sp_Username", null);
             SharedPref.putString(getApplicationContext(), "sp_image_url", null);
             SharedPref.putString(getApplicationContext(), "sp_email", null);
             SharedPref.putBoolean(getApplicationContext(), "sp_loggedin", false);
 
-            Intent startMain = new Intent(Intent.ACTION_MAIN);
-            startMain.addCategory(Intent.CATEGORY_HOME);
-            startMain.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+            Intent startMain = new Intent(getApplicationContext(),login_options.class);
+            startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(startMain);
-            finishAffinity();
-            finish();
-        }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+            }
+        });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        startActivity(startMain);
+        finishAffinity();
+        finish();
+    }
+
+
+
+
+
 
     View.OnClickListener insta_redirect = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             startActivity(Insta_intent);
-            change_image();
 
         }
     };
@@ -209,7 +138,6 @@ public class home extends AppCompatActivity
         @Override
         public void onClick(View view) {
             startActivity(shop_intent);
-            change_image();
 
         }
     };
@@ -217,7 +145,6 @@ public class home extends AppCompatActivity
         @Override
         public void onClick(View view) {
             startActivity(gps_intent);
-            change_image();
 
         }
     };
@@ -225,15 +152,6 @@ public class home extends AppCompatActivity
         @Override
         public void onClick(View view) {
             startActivity(plant_intent);
-            change_image();
-
-        }
-    };
-    View.OnClickListener event_redirect = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            startActivity(event_intent);
-            change_image();
 
         }
     };

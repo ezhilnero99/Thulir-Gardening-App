@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@mipmap/cat"
+    android:fitsSystemWindows="true"
     tools:context=".Activities.Splash_Screen">
 
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/orchids"
+        android:tint="@color/dark_blue"
+        />
+
     <TextView
-        android:layout_marginTop="200dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="THINK AGRI"
-        android:textSize="50dp"
+        android:textSize="40dp"
+        android:layout_marginTop="350dp"
         android:textStyle="bold|italic"
-        android:textColor="@color/green"
+        android:textColor="@color/dark_blue"
         android:layout_marginBottom="50dp"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_centerHorizontal="true"/>
 
-    <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center_horizontal|center_vertical"
-        app:srcCompat="@drawable/orchids"
-        />
 
-</LinearLayout>
+
+</RelativeLayout>

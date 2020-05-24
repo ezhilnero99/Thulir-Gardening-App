@@ -3,32 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/rectangle_back"
     android:layout_height="match_parent"
+    android:background="@mipmap/log"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".Activities.login_activity">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/leaves"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginTop="30dp"/>
 
-  <ImageView
-      android:layout_marginTop="80dp"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:src="@drawable/line"
-      android:paddingLeft="60dp"
-      android:paddingRight="60dp"/>
     <ImageView
-        android:layout_marginTop="30dp"
         android:layout_width="200dp"
         android:layout_height="250dp"
-        android:src="@drawable/wel"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:padding="30dp"/>
-
+        android:layout_marginTop="130dp"
+        android:tint="@color/dark_blue"
+        android:padding="30dp"
+        android:src="@drawable/wel" />
 
 
     <Button
@@ -41,15 +29,6 @@
         android:text="Login"
         android:textColor="@color/white"
         android:textSize="20dp" />
-    <ImageView
-        android:layout_marginTop="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/line"
-        android:paddingLeft="60dp"
-        android:paddingRight="60dp"/>
-
-
 
 
 </LinearLayout>

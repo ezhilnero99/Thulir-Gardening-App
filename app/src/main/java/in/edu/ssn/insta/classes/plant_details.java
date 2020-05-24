@@ -2,7 +2,7 @@ package in.edu.ssn.insta.classes;
 
 public class plant_details {
     String product_name1;
-    String product_name2,key1,key2;
+    String product_name2, key1, key2;
     int pic1;
     int pic2;
 

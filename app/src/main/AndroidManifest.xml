@@ -8,7 +8,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.web" android:theme="@style/AppTheme.mypop">
+        <activity
+            android:name=".Activities.web"
+            android:theme="@style/AppTheme.mypop">
 
         </activity>
         <activity android:name=".Activities.Events" />
@@ -18,7 +20,7 @@
         <activity android:name=".Activities.Extensive_farming_tamil" />
         <activity android:name=".Activities.login_options" />
         <activity android:name=".Activities.map" />
-        <activity android:name=".Activities.shop" >
+        <activity android:name=".Activities.shop">
 
         </activity>
         <activity
@@ -43,11 +45,11 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

@@ -2,7 +2,10 @@ package in.edu.ssn.insta.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -21,7 +24,10 @@ public class Plants extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plants);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
         plant_listView = (ListView)findViewById(R.id.plant_listView);
         arr_list.add(new plant_details("spinach" , "chilli","how+to+grow+spinach","how+to+grow+chilli ",R.drawable.spinach,R.drawable.chilli));
         arr_list.add(new plant_details("green beans" , "bitterguard","how+to+grow+green+beans","how+to+grow+bitter+guard ",R.drawable.greenbeans,R.drawable.bitterguard));

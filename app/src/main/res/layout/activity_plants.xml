@@ -4,28 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/light_grey"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".Activities.Plants">
+
     <TextView
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="How to grow"
-        android:textStyle="bold"
-        android:textAlignment="gravity"
-        android:textColor="@color/white"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/rectangle_blue"
         android:gravity="center_vertical|center_horizontal"
-        />
+        android:text="How to grow"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
     <ListView
-        android:divider="@color/light_grey"
         android:id="@+id/plant_listView"
         android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
         android:layout_height="match_parent"
-        />
+        android:divider="@color/light_grey" />
+
 
 </LinearLayout>
