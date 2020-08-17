@@ -23,8 +23,7 @@
         android:gravity="center_vertical|center_horizontal"
         />
     <TextView
-        android:textColor="@color/black"
-        android:textSize="18dp"
+        android:textSize="14dp"
         android:background="@drawable/rectangle_white"
         android:id="@+id/event_desc_tv"
         android:layout_marginLeft="20dp"

@@ -4,18 +4,17 @@
     android:layout_height="wrap_content">
     <View
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_marginLeft="70dp"
+        android:layout_height="60dp"
+        android:layout_toRightOf="@id/plant_sug_img"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/rectangle_white"
-        android:backgroundTint="@color/trans_light_grey"
-        android:orientation="horizontal" />
+        android:backgroundTint="@color/trans_light_grey" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/plant_sug_img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_margin="20dp" />
 
@@ -23,13 +22,13 @@
         android:id="@+id/plant_sugg_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="@color/dark_grey"
         android:layout_toRightOf="@id/plant_sug_img"
         android:layout_centerVertical="true"
-        android:fontFamily="@font/arima"
+        android:fontFamily="@font/thin_block"
         android:text="Plant names here"
         android:layout_marginLeft="20dp"
-        android:textSize="20dp" />
+        android:textSize="16dp" />
 
 
 </RelativeLayout>
