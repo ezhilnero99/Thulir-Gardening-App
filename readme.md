@@ -48,4 +48,6 @@ A public forum where users can share images to the community and get feedback by
 
 For farmers the app has both `English` and `Tamil` language support.
 
-![category](/imgs/cat.jpg) | ![language](/imgs/lang.jpg) | ![english](/imgs/eng.jpg) | ![tamil](/imgs/tamil.jpg)
+![category](/imgs/cat.jpg) | ![language](/imgs/lang.jpg) 
+
+![english](/imgs/eng.jpg) | ![tamil](/imgs/tamil.jpg)
