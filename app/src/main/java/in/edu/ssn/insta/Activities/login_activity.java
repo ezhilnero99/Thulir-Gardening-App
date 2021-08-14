@@ -30,6 +30,7 @@ public class login_activity extends AppCompatActivity {
 
     private static final String TAG = "app_test";
     Button submit_but;
+    int shortcut = 0;
 
     Intent intent;
 
@@ -39,10 +40,20 @@ public class login_activity extends AppCompatActivity {
 
     private View.OnClickListener submit_pressed = new View.OnClickListener() {
         public void onClick(View v) {
-            mAuth.signOut();
-            mGoogleSignInClient.signOut();
-            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-            startActivityForResult(signInIntent, RC_SIGN_IN);
+
+            if(shortcut==1) {
+                mAuth.signOut();
+                mGoogleSignInClient.signOut();
+                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+                startActivityForResult(signInIntent, RC_SIGN_IN);
+            }else {
+                SharedPref.putString(getApplicationContext(), "sp_Username", "Ezhil Prasanth");
+                SharedPref.putString(getApplicationContext(), "sp_image_url", "https://lh3.googleusercontent.com/a-/AOh14GiPNzwt0DkY4zVQHFzjyWg0IIrylQhvNL9d-EBu=s96-c");
+                SharedPref.putString(getApplicationContext(), "sp_email", "ezhil99mutsun@gmail.com");
+                SharedPref.putBoolean(getApplicationContext(), "sp_loggedin", true);
+                Intent intent = new Intent(getApplicationContext(),home.class);
+                startActivity(intent);
+            }
         }
     };
 

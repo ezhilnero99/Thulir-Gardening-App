@@ -42,7 +42,7 @@ public class Plants extends AppCompatActivity {
         arr_list.add(new plant_details("watermelon" , "corrianda","how+to+grow+watermelon","how+to+grow+corrianda ",R.drawable.watermelon,R.drawable.corrianda));
         arr_list.add(new plant_details("turnip" , "tomato","how+to+grow+turnip","how+to+grow+tomato ",R.drawable.turnip,R.drawable.tomato));
         arr_list.add(new plant_details("amaranthus" , "solanaeae","how+to+grow+amaranthus","how+to+grow+solanaeae",R.drawable.amaranthus,R.drawable.solanaeae));
-        arr_adp = new plantadapter(arr_list,getApplicationContext());
+        arr_adp = new plantadapter(arr_list,Plants.this);
         plant_listView.setAdapter(arr_adp);
     }
 }
